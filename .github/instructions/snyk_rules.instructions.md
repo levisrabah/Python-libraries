@@ -1,14 +1,22 @@
 ---
-alwaysApply: true
-always_on: true
-trigger: always_on
+name: snyk-security-at-inception
+description: Guide Copilot to generate secure code following Snyk best practices
 applyTo: "**"
-description: Snyk Security At Inception
 ---
 
-# Project security best practices
+## Security-first coding rules (Copilot)
 
-- Always run snyk_code_scan tool for new first party code that is generated in a Snyk-supported language.
-- If any security issues are found based on newly introduced or modified code or dependencies, attempt to fix the issues using the results context from Snyk.
-- Rescan the code after fixing the issues to ensure that the issues were fixed and that there are no newly introduced issues.
-- Repeat this process until no new issues are found.
+When generating or modifying code:
+
+- Prefer secure-by-default libraries and APIs.
+- Never hardcode secrets (API keys, tokens, credentials).
+- Always suggest environment variables or secret managers for sensitive values.
+- Validate and sanitize all external input.
+- Use safe dependency versions and avoid known vulnerable packages.
+- When applicable, generate code compatible with Snyk Code and Snyk Open Source scanning.
+
+## Fix guidance
+
+- If security issues are detected in newly generated code, suggest fixes inline.
+- After applying fixes, ensure no new vulnerabilities are introduced.
+- Favor clarity and maintainability when applying security fixes.
